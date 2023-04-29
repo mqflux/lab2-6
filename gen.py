@@ -4,7 +4,7 @@ import numpy as np
 max_plot_items = 15
 
 
-# С
+# Функция выбирает точки, заданные пользователем или последние 15 точек, если условие не задано
 def create_data(_iterator=None):
     with open("data.txt", "r") as file:
         xs, ys = [], []
@@ -27,6 +27,7 @@ def create_plt(x, y):
     plt.show()
 
 
+# Функция обрабатывает команды пользователя
 def process_cmd(string):
     sp = [i.lower().strip() for i in string.split()]
     rng = None
@@ -43,4 +44,5 @@ def process_cmd(string):
 
 
 if __name__ == "__main__":
-    create_plt(*create_data(process_cmd(input())))
+    while True:
+        create_plt(*create_data(process_cmd(input())))
